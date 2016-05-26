@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - javadb@localhost" uuid="e07c1b10-c649-488c-8768-b7badf159191">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="javadb"/>
+      <table id="2" parent="1" name="adherents"/>
+      <table id="3" parent="1" name="emprunt"/>
+      <table id="4" parent="1" name="examplaires"/>
+      <table id="5" parent="1" name="livres"/>
+      <column id="6" parent="2" name="code">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="7" parent="2" name="nom">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="8" parent="2" name="prenom">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="9" parent="2" name="telephone">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="10" parent="2" name="adresse">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="11" parent="2" name="PRIMARY">
+        <columns>code</columns>
+        <primary>1</primary>
+      </key>
+      <column id="12" parent="3" name="numeroTransaction">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="3" name="adherents_code">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="3" name="examplaires_numero">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="3" name="dateEmprunt">
+        <data-type>date</data-type>
+      </column>
+      <column id="16" parent="3" name="dateRetour">
+        <data-type>date</data-type>
+      </column>
+      <index id="17" parent="3" name="fk_emprunt_adherents1_idx">
+        <columns>adherents_code</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="18" parent="3" name="fk_emprunt_examplaires1_idx">
+        <columns>examplaires_numero</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="19" parent="3" name="PRIMARY">
+        <columns>numeroTransaction</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="20" parent="3" name="fk_emprunt_adherents1">
+        <columns>adherents_code</columns>
+        <ref-key>~.adherents.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="21" parent="3" name="fk_emprunt_examplaires1">
+        <columns>examplaires_numero</columns>
+        <ref-key>~.examplaires.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="22" parent="4" name="numero">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="4" name="etat">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="24" parent="4" name="dateAchat">
+        <data-type>date</data-type>
+      </column>
+      <column id="25" parent="4" name="ISBN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="26" parent="4" name="dispo">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <index id="27" parent="4" name="fk_examplaires_livres_idx">
+        <columns>ISBN</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="28" parent="4" name="PRIMARY">
+        <columns>numero</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="29" parent="4" name="fk_examplaires_livres">
+        <columns>ISBN</columns>
+        <ref-key>~.livres.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="30" parent="5" name="ISBN">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="31" parent="5" name="titre">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="32" parent="5" name="genre">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="33" parent="5" name="nbrPages">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="34" parent="5" name="PRIMARY">
+        <columns>ISBN</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

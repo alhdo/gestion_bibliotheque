@@ -29,7 +29,7 @@ public class BiblioConnection {
      */
     private static String url="jdbc:mysql://localhost:3306/javadb";
     private static String user="root";
-    private static String password="alessandro53";
+    private static String password="";
 
     //Instance de la connection
     private static Connection connect;

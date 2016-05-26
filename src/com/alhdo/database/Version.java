@@ -31,7 +31,7 @@ public class Version {
 
         String url = "jdbc:mysql://localhost:3306/javadb";
         String user = "root";
-        String password = "alessandro53";
+        String password = "";
 
         try {
             con = DriverManager.getConnection(url, user, password);
